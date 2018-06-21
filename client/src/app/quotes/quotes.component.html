@@ -1,0 +1,23 @@
+<div *ngIf="curauthor">
+  <nav>
+    <a routerLink = "/">Home</a>
+    <a routerLink = "/write/{{curauthor._id}}">Add A Quote</a>
+  </nav>
+  <h3>Quotes by {{curauthor.name}}</h3>
+  <table>
+    <tr>
+      <th>Quotes</th>
+      <th>Votes</th>
+      <th>Actions available</th>
+    </tr>
+    <tr *ngFor = "let quote of curauthor.quotes">
+      <td>{{quote.quote}}</td>
+      <td>{{quote.votes}}</td>
+      <td>
+        <button (click)="vote(quote._id, 1)">Vote up</button>
+        <button (click)="vote(quote._id, -1)">Vote down</button>
+        <button (click)="delete(quote._id)">Delete</button>
+      </td>
+    </tr>
+  </table>
+</div>

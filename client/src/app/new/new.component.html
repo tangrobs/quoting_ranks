@@ -1,0 +1,18 @@
+<nav>
+  <a routerLink = "/">Home</a>
+</nav>
+<p>Add a new Author:</p>
+<div *ngIf="validationMessage">
+  <p class = "error" *ngFor="let message of validationMessage">{{message}}</p>
+</div>
+<table>
+  <tr>
+    <td>Name: </td>
+    <td><input #name></td>
+  </tr>
+  <tr>
+    <td><button routerLink ='/'>Cancel</button></td>
+    <td><button (click) = "submit(name.value)">Submit</button></td>
+  </tr>
+      
+</table>

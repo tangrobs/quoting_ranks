@@ -1,0 +1,17 @@
+<nav>
+  <a routerLink = "/">Home</a>
+</nav>
+<div *ngIf = curauthor>
+  <h3>Provide a quote by {{curauthor.name}}</h3>
+  <div *ngIf="validationMessage">
+    <p class = "error" *ngFor ="let message of validationMessage">{{message}}</p>
+  </div>
+  <div>
+    <p>Quote:</p>
+    <p><input #quote></p>
+    <p>
+      <button routerLink = "/quotes/{{curauthor._id}}">Cancel</button>
+      <button (click)="submit(quote.value)">Submit</button>
+    </p>
+  </div>
+</div>
